@@ -13,5 +13,11 @@ export async function getStaticProps() {
 export default function Home({ result }) {
   console.log(result);
 
-  return <h1>Doação de computadores usados</h1>;
+  return (
+    <div>
+      <h1>Doação de computadores usados</h1>
+
+      {result.alive ? <p>API online</p> : <p>API offline</p>}
+    </div>
+  );
 }
