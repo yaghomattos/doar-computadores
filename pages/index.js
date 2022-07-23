@@ -1,7 +1,11 @@
-export async function getStaticProps() {
-  const data = await fetch('https://doar-computador-api.herokuapp.com/');
+import axios from 'axios';
 
-  const alive = await data.json();
+export async function getStaticProps() {
+  const response = await axios.get(
+    'https://doar-computador-api.herokuapp.com/'
+  );
+
+  const alive = await response.data;
 
   return {
     props: {
