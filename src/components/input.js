@@ -1,15 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactInputMask from 'react-input-mask';
 
+React.useLayoutEffect = React.useEffect;
+
 import { useField } from '@unform/core';
-import useIsomorphicLayoutEffect from './isomorphicLayoutEffect';
 
 export default function InputMask({ name, ...rest }) {
   const inputRef = useRef(null);
 
   const { fieldName, registerField, defaultValue, error } = useField(name);
 
-  useIsomorphicLayoutEffect(() => {
+  useEffect(() => {
     registerField({
       name: fieldName,
       ref: inputRef.current,
