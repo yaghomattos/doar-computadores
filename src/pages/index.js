@@ -1,5 +1,6 @@
 import { Form } from '@unform/web';
 import { useRef } from 'react';
+import * as Yup from 'yup';
 import InputMask from '../components/input';
 import Select from '../components/select';
 import api from '../service/api';
@@ -17,6 +18,45 @@ export default function Home() {
     form.devices = array;
 
     data = JSON.stringify(form);
+
+    try {
+      formRef.current.setErrors({});
+
+      const schema = Yup.object().shape({
+        name: Yup.string().required('O nome é obrigatório'),
+        email: Yup.string().email('teste'),
+        phone: Yup.string().min(11).required('O telefone é obrigatório'),
+        zip: Yup.string().required('O cep é obrigatório'),
+        city: Yup.string().required('A cidade é obrigatória'),
+        state: Yup.string().required('O estado é obrigatório'),
+        streetAddress: Yup.string().required('O endereço é obrigatório'),
+        number: Yup.string().required('O número é obrigatório'),
+        complement: Yup.string(),
+        neighborhood: Yup.string().required(
+          'O ponto de referência é obrigatório'
+        ),
+        deviceCount: Yup.number()
+          .required()
+          .integer()
+          .moreThan(0, 'O número de dispositivos é obrigatório'),
+      });
+
+      await schema.validate(form, {
+        abortEarly: false,
+      });
+
+      console.log('tudo certo');
+    } catch (err) {
+      var validationErrors = {};
+
+      if (err instanceof Yup.ValidationError) {
+        err.inner.forEach((error) => {
+          console.log(error);
+          validationErrors[error.path] = error.message;
+        });
+        formRef.current.setErrors(validationErrors);
+      }
+    }
 
     api
       .post('/donation', data)
