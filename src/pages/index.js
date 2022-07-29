@@ -2,19 +2,38 @@ import { Form } from '@unform/web';
 import { useRef } from 'react';
 import InputMask from '../components/input';
 import Select from '../components/select';
+import api from '../service/api';
 
 export default function Home() {
   const formRef = useRef();
 
   async function handleFormSubmit(form, { reset }) {
     var array = [];
+    var data = '';
 
     form.deviceCount = parseInt(form.deviceCount);
     array.push(form.devices);
 
     form.devices = array;
 
-    console.log(JSON.stringify(form));
+    data = JSON.stringify(form);
+
+    api
+      .post('/donation', data)
+      .then((response) => {
+        alert('Envio concluído com exito! ' + response.status);
+        console.log(data);
+      })
+      .catch((error) => {
+        if (error.response.status == 400) {
+          alert('erro 400');
+        } else {
+          alert(
+            'Falha em obter resposta do servidor. Tente novamente mais tarde. \nStatus ' +
+              error.response.status
+          );
+        }
+      });
   }
 
   return (
