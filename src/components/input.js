@@ -16,7 +16,7 @@ export default function InputMask({ name, ...rest }) {
       ref: inputRef.current,
       path: 'value',
       setValue(ref, value) {
-        ref.setInputValue(value);
+        ref.value = value;
       },
       clearValue(ref) {
         ref.setInputValue('');
