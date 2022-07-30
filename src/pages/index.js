@@ -1,5 +1,5 @@
 import { Form } from '@unform/web';
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import * as Yup from 'yup';
 import { FormDevices } from '../components/form/devices';
 import { FormPersonal } from '../components/form/personal';
@@ -9,7 +9,11 @@ import { fetchZip } from '../utils/fetchZip';
 export default function Home() {
   const formRef = useRef();
 
+  const [loading, setLoading] = useState(false);
+
   const setAddress = useCallback((value) => {
+    setLoading(true);
+
     fetchZip(value).then((response) => {
       if (response.city !== undefined) {
         formRef.current.setFieldValue('state', response.state);
@@ -17,6 +21,7 @@ export default function Home() {
         formRef.current.setFieldValue('streetAddress', response.streetAddress);
         formRef.current.setFieldValue('neighborhood', response.neighborhood);
       }
+      setLoading(false);
     });
   }, []);
 
@@ -99,6 +104,7 @@ export default function Home() {
         <FormPersonal
           setAddress={setAddress}
           handleCreateSelect={handleCreateSelect}
+          isLoading={loading}
         />
       </section>
       <section id="section2">

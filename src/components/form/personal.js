@@ -1,7 +1,7 @@
 import React from 'react';
 import InputMask from '../input';
 
-export function FormPersonal({ setAddress, handleCreateSelect }) {
+export function FormPersonal({ setAddress, handleCreateSelect, isLoading }) {
   return (
     <div>
       <h1>Dados Pessoais</h1>
@@ -18,6 +18,7 @@ export function FormPersonal({ setAddress, handleCreateSelect }) {
           if (length === 8) setAddress(target.value);
         }}
       />
+      {isLoading && <span>pesquisando cep...</span>}
       <InputMask name="city" placeholder="cidade" />
       <InputMask name="state" placeholder="estado" />
       <InputMask name="streetAddress" placeholder="rua" />
