@@ -1,7 +1,12 @@
 import React from 'react';
 import InputMask from '../input';
 
-export function FormPersonal({ setAddress, handleCreateSelect, isLoading }) {
+export function FormPersonal({
+  setAddress,
+  handleCreateDevice,
+  isLoading,
+  handleDeleteDevice,
+}) {
   return (
     <div>
       <h1>Dados Pessoais</h1>
@@ -25,10 +30,15 @@ export function FormPersonal({ setAddress, handleCreateSelect, isLoading }) {
       <InputMask name="number" placeholder="número" />
       <InputMask name="complement" placeholder="complemento" />
       <InputMask name="neighborhood" placeholder="ponto de referência" />
+
       <InputMask
+        min="1"
         type="number"
         name="deviceCount"
-        onChange={handleCreateSelect}
+        onChange={({ target }) => {
+          handleCreateDevice(target.value);
+          handleDeleteDevice(target.value);
+        }}
       />
     </div>
   );

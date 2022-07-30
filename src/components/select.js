@@ -10,15 +10,14 @@ export default function Select({ name, ...rest }) {
     registerField({
       name: fieldName,
       ref: selectRef.current,
-
       getValue: (ref) => {
-        if (!ref.state.selectValue) {
+        if (ref.getValue().length == 0) {
           return undefined;
         }
-        return ref.state.selectValue[0].value;
+        return ref.getValue().at(0).value;
       },
     });
-  }, [fieldName, registerField, rest.isMulti]);
+  }, [fieldName, registerField]);
 
   return (
     <ReactSelect
