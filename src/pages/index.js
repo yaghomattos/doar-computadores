@@ -6,6 +6,7 @@ import { FormDevices } from '../components/form/devices';
 import { FormPersonal } from '../components/form/personal';
 import api from '../service/api';
 import { fetchZip } from '../utils/fetchZip';
+import { validateDevices } from '../utils/validateDevices';
 
 export default function Home() {
   const formRef = useRef();
@@ -48,6 +49,8 @@ export default function Home() {
   async function handleFormSubmit(form) {
     form.deviceCount = parseInt(form.deviceCount);
 
+    const data = JSON.stringify(form);
+
     try {
       formRef.current.setErrors({});
 
@@ -83,9 +86,9 @@ export default function Home() {
         abortEarly: false,
       });
 
-      const data = JSON.stringify(form);
+      const devicesPassed = await validateDevices(form);
 
-      !setDevicesError &&
+      if (devicesPassed.value === true) {
         api
           .post('/donation', data)
           .then((response) => {
@@ -97,6 +100,10 @@ export default function Home() {
                 error.response.status
             );
           });
+      } else
+        alert(
+          'Dados faltantes ou errados. Corrigir antes de enviar novamente. \nStatus 400'
+        );
     } catch (err) {
       var validationErrors = {};
 
@@ -106,6 +113,9 @@ export default function Home() {
         });
       }
       formRef.current.setErrors(validationErrors);
+      alert(
+        'Dados faltantes ou errados. Corrigir antes de enviar novamente. \nStatus 400'
+      );
     }
   }
 
