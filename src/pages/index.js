@@ -107,11 +107,11 @@ export default function Home() {
   }
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center bg-gray-200">
+    <div className="flex flex-col min-h-screen h-full items-center bg-gray-200">
       <Head>
         <title>Doar Computadores</title>
       </Head>
-      <div className="w-1/2 my-5 items-center bg-white rounded-md">
+      <div className=" flex flex-col px-8 my-5 items-center bg-white rounded-md">
         <Form
           className="flex flex-col items-center "
           initialData={{ deviceCount: 1 }}
@@ -122,7 +122,7 @@ export default function Home() {
             Doação de Computadores
           </h1>
 
-          <section className="flex justify-center">
+          <section className="flex flex-wrap justify-center">
             <FormPersonal
               setAddress={setAddress}
               isLoading={loading}
@@ -131,11 +131,12 @@ export default function Home() {
             />
           </section>
 
-          <div className="w-full pl-10 flex flex-col">
-            <h2 className="text-2xl font-bold text-zinc-500">Equipamentos</h2>
-          </div>
+          <div className="w-full relative "></div>
 
-          <section className="flex justify-center">
+          <section className="flex flex-col justify-center">
+            <h2 className="pl-6 text-2xl font-bold text-zinc-500">
+              Equipamentos
+            </h2>
             <FormDevices devices={devices} devicesError={devicesError} />
           </section>
 

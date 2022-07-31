@@ -17,7 +17,7 @@ export function FormDevices({ devices, devicesError }) {
               </p>
             )}
 
-            <div className="grid grid-cols-2">
+            <div className="flex flex-wrap w-full gap-1">
               <Select
                 name={`devices.${index}.type`}
                 placeholder="Tipo de equipamento"

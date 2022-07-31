@@ -10,14 +10,14 @@ export function FormPersonal({
   return (
     <div className="flex flex-col">
       <h2 className="text-2xl font-bold text-zinc-500">Dados Pessoais</h2>
-      <div className="pb-2 grid grid-cols-3 gap-1">
+      <div className="flex flex-wrap w-full pb-2 gap-1">
         <InputMask name="name" placeholder="nome" />
         <InputMask name="email" placeholder="email" />
         <InputMask name="phone" placeholder="telefone" mask="99 999999999" />
       </div>
       <h3 className="text-1xl font-bold text-zinc-500">Endereço</h3>
 
-      <div className="grid grid-cols-3 gap-1">
+      <div className="flex flex-wrap w-full gap-1">
         <InputMask
           name="zip"
           placeholder="cep"
@@ -33,18 +33,18 @@ export function FormPersonal({
       </div>
       <div className="w-full">
         <InputMask
-          className="w-full h-12 px-2 py-2 my-0.5 font-normal text-xl text-zinc-600 bg-white placeholder:text-zinc-400 border border-zinc-300 outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-lg shadow-sm"
+          className="w-full h-12 px-2 py-2 my-1 font-normal text-xl text-zinc-600 bg-white placeholder:text-zinc-400 border border-zinc-300 outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-lg shadow-sm"
           name="streetAddress"
           placeholder="rua"
         />
       </div>
-      <div className="grid grid-cols-3 gap-1">
+      <div className="flex flex-wrap w-full gap-1">
         <InputMask name="number" placeholder="número" />
         <InputMask name="complement" placeholder="complemento" />
         <InputMask name="neighborhood" placeholder="ponto de referência" />
       </div>
 
-      <div className="flex pb-5 items-center jusitfy-center">
+      <div className="flex pt-1 pb-5 items-center jusitfy-center">
         <h3 className="mr-2 text-xl font-bold text-zinc-400">
           Quantos equipamentos serão doados ?
         </h3>
