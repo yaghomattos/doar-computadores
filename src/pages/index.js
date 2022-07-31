@@ -15,6 +15,10 @@ export default function Home() {
   const [devices, setDevices] = useState([{ value: '', label: '' }]);
   const [devicesError, setDevicesError] = useState(false);
 
+  /**
+   * Hook para setar as informações referentes ao cep
+   * @param value -> cep
+   */
   const setAddress = useCallback((value) => {
     setLoading(true);
 
@@ -31,6 +35,11 @@ export default function Home() {
     });
   }, []);
 
+  /**
+   * Função para criar equipamentos vazios, atualizando o estado para exibir a
+   * quantidade de dispotivos digitados
+   * @param deviceCount
+   */
   async function handleCreateDevice(deviceCount) {
     var newDevice = { value: '', label: '' };
     for (var i = devices.length; i < deviceCount; i++) {
@@ -39,6 +48,11 @@ export default function Home() {
     formRef.current.setFieldValue('devices', devices);
   }
 
+  /**
+   * Função para remover equipamentos, atualizando o estado para exibir apenas a
+   * quantidade de equipamentos digitados
+   * @param deviceCount
+   */
   async function handleDeleteDevice(deviceCount) {
     for (var i = devices.length; i >= deviceCount; i--) {
       setDevices((prevState) => prevState.filter((_, index) => index !== i));
@@ -46,11 +60,19 @@ export default function Home() {
     formRef.current.setFieldValue('devices', devices);
   }
 
+  /**
+   * Função para envio do formulário
+   * @param form -> objeto com as informações do formulário
+   */
   async function handleFormSubmit(form) {
     form.deviceCount = parseInt(form.deviceCount);
 
     const data = JSON.stringify(form);
 
+    /**
+     * Validação dos erros de preenchimento do formulário com o "try",
+     * Caso ocorra algum erro é simulado status 400 ao fazer o envio
+     */
     try {
       formRef.current.setErrors({});
 
@@ -73,9 +95,10 @@ export default function Home() {
         deviceCount: Yup.number()
           .required()
           .integer()
-          .moreThan(0, 'O número de dispositivos é obrigatório'),
+          .moreThan(0, 'O número de equipamentos é obrigatório'),
       });
 
+      /* Validação manual do número de equipamentos */
       form.devices.forEach((device) => {
         if (device.type == undefined || device.condition == undefined) {
           setDevicesError(true);
@@ -113,6 +136,7 @@ export default function Home() {
         });
       }
       formRef.current.setErrors(validationErrors);
+
       alert(
         'Dados faltantes ou errados. Corrigir antes de enviar novamente. \nStatus 400'
       );

@@ -1,5 +1,11 @@
 import api from '../service/api';
 
+/**
+ * Função para pesquisar e retornar as informações do cep
+ * Caso o cep não exista é retornado "undefined"
+ * @param zip -> cep sem caracteres especiais
+ */
+
 export async function fetchZip(zip) {
   var state;
   var city;
