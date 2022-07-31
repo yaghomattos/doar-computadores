@@ -23,11 +23,10 @@ export default function Home() {
         formRef.current.setFieldValue('city', response.city);
         formRef.current.setFieldValue('streetAddress', response.streetAddress);
         formRef.current.setFieldValue('neighborhood', response.neighborhood);
+
+        formRef.current.getFieldRef('number').focus();
       }
-
       setLoading(false);
-
-      formRef.current.getFieldRef('number').focus();
     });
   }, []);
 
@@ -86,17 +85,18 @@ export default function Home() {
 
       const data = JSON.stringify(form);
 
-      api
-        .post('/donation', data)
-        .then((response) => {
-          alert('Envio concluído com exito! Satus ' + response.status);
-        })
-        .catch((error) => {
-          alert(
-            'Falha em obter resposta do servidor. Tente novamente mais tarde. \nStatus ' +
-              error.response.status
-          );
-        });
+      !setDevicesError &&
+        api
+          .post('/donation', data)
+          .then((response) => {
+            alert('Envio concluído com exito! Satus ' + response.status);
+          })
+          .catch((error) => {
+            alert(
+              'Falha em obter resposta do servidor. Tente novamente mais tarde. \nStatus ' +
+                error.response.status
+            );
+          });
     } catch (err) {
       var validationErrors = {};
 

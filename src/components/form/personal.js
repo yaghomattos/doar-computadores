@@ -12,7 +12,7 @@ export function FormPersonal({
       <h2 className="text-2xl font-bold text-zinc-500">Dados Pessoais</h2>
       <div className="flex flex-wrap w-full pb-2 gap-1">
         <InputMask name="name" placeholder="nome" />
-        <InputMask name="email" placeholder="email" />
+        <InputMask type="email" name="email" placeholder="email" />
         <InputMask name="phone" placeholder="telefone" mask="99 999999999" />
       </div>
       <h3 className="text-1xl font-bold text-zinc-500">Endereço</h3>
