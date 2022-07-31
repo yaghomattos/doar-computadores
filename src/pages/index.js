@@ -55,7 +55,10 @@ export default function Home() {
       const schema = Yup.object().shape({
         name: Yup.string().required('*O nome é obrigatório'),
         email: Yup.string(),
-        phone: Yup.string().min(11).required('*O telefone é obrigatório'),
+        phone: Yup.string()
+          .transform((value) => value.replaceAll('_', ''))
+          .min(12, 'Telefone inválido')
+          .required('*O telefone é obrigatório'),
         zip: Yup.string().required('*O cep é obrigatório'),
         city: Yup.string().required('*A cidade é obrigatória'),
         state: Yup.string().required('*O estado é obrigatório'),
