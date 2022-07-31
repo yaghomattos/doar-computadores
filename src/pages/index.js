@@ -1,4 +1,5 @@
 import { Form } from '@unform/web';
+import Head from 'next/head';
 import { useCallback, useRef, useState } from 'react';
 import * as Yup from 'yup';
 import { FormDevices } from '../components/form/devices';
@@ -52,17 +53,17 @@ export default function Home() {
       formRef.current.setErrors({});
 
       const schema = Yup.object().shape({
-        name: Yup.string().required('O nome é obrigatório'),
+        name: Yup.string().required('*O nome é obrigatório'),
         email: Yup.string(),
-        phone: Yup.string().min(11).required('O telefone é obrigatório'),
-        zip: Yup.string().required('O cep é obrigatório'),
-        city: Yup.string().required('A cidade é obrigatória'),
-        state: Yup.string().required('O estado é obrigatório'),
-        streetAddress: Yup.string().required('A rua é obrigatória'),
-        number: Yup.string().required('O número é obrigatório'),
+        phone: Yup.string().min(11).required('*O telefone é obrigatório'),
+        zip: Yup.string().required('*O cep é obrigatório'),
+        city: Yup.string().required('*A cidade é obrigatória'),
+        state: Yup.string().required('*O estado é obrigatório'),
+        streetAddress: Yup.string().required('*A rua é obrigatória'),
+        number: Yup.string().required('*O número é obrigatório'),
         complement: Yup.string(),
         neighborhood: Yup.string().required(
-          'O ponto de referência é obrigatório'
+          '*O ponto de referência é obrigatório'
         ),
         deviceCount: Yup.number()
           .required()
@@ -106,27 +107,46 @@ export default function Home() {
   }
 
   return (
-    <Form
-      initialData={{ deviceCount: 1 }}
-      ref={formRef}
-      onSubmit={handleFormSubmit}
-    >
-      <section id="section1">
-        <FormPersonal
-          setAddress={setAddress}
-          isLoading={loading}
-          handleCreateDevice={handleCreateDevice}
-          handleDeleteDevice={handleDeleteDevice}
-        />
-      </section>
-      <section id="section2">
-        <div>
-          <h1>Equipamentos</h1>
-          <FormDevices devices={devices} devicesError={devicesError} />
+    <div className="w-full min-h-screen flex flex-col items-center bg-gray-200">
+      <Head>
+        <title>Doar Computadores</title>
+      </Head>
+      <div className="w-1/2 my-5 items-center bg-white rounded-md">
+        <Form
+          className="flex flex-col items-center "
+          initialData={{ deviceCount: 1 }}
+          ref={formRef}
+          onSubmit={handleFormSubmit}
+        >
+          <h1 className="mt-12 mb-8 text-5xl font-extrabold text-zinc-700">
+            Doação de Computadores
+          </h1>
 
-          <button type="submit">Enviar</button>
-        </div>
-      </section>
-    </Form>
+          <section className="flex justify-center">
+            <FormPersonal
+              setAddress={setAddress}
+              isLoading={loading}
+              handleCreateDevice={handleCreateDevice}
+              handleDeleteDevice={handleDeleteDevice}
+            />
+          </section>
+
+          <div className="w-full pl-10 flex flex-col">
+            <h2 className="text-2xl font-bold text-zinc-500">Equipamentos</h2>
+          </div>
+
+          <section className="flex justify-center">
+            <FormDevices devices={devices} devicesError={devicesError} />
+          </section>
+
+          <button
+            className="inline-block mt-5 mb-12 py-3 px-7 w-1/3 text-green-50 font-medium text-center bg-green-500 hover:bg-green-600 rounded-md"
+            type="submit"
+          >
+            Enviar
+          </button>
+        </Form>
+      </div>
+    </div>
   );
 }
