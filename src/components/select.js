@@ -42,7 +42,7 @@ export default function Select({ name, ...rest }) {
 
   return (
     <ReactSelect
-      className="w-32 sm:w-36 md:w-64 lg:w-96"
+      className="w-80 sm:w-96 md:w-72 lg:w-96 xl:auto"
       styles={customStyles}
       theme={(theme) => ({
         ...theme,

@@ -3,10 +3,10 @@ import Select from '../select';
 
 export function FormDevices({ devices, devicesError }) {
   return (
-    <div className="w-full px-5 ">
+    <div className="flex flex-col items-center">
       {devices.map((device, index) => {
         return (
-          <div key={index} className="flex flex-col items-center ">
+          <div key={index} className="w-full flex flex-col items-center ">
             <h4 className="text-xl text-zinc-400 font-medium pl-4">{`Equipamento ${
               index + 1
             }:`}</h4>
@@ -17,7 +17,7 @@ export function FormDevices({ devices, devicesError }) {
               </p>
             )}
 
-            <div className="flex flex-wrap w-full gap-1">
+            <div className="w-full flex flex-wrap justify-center gap-1">
               <Select
                 name={`devices.${index}.type`}
                 placeholder="Tipo de equipamento"

@@ -168,10 +168,8 @@ export default function Home() {
             />
           </section>
 
-          <section>
-            <h2 className="pl-6 text-2xl font-bold text-zinc-500">
-              Equipamentos
-            </h2>
+          <section className="w-full">
+            <h2 className=" text-2xl font-bold text-zinc-500">Equipamentos</h2>
             <FormDevices devices={devices} devicesError={devicesError} />
           </section>
 
