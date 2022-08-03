@@ -109,7 +109,7 @@ export default function Home() {
         abortEarly: false,
       });
 
-      const devicesPassed = await validateDevices(form);
+      const devicesPassed = await validateDevices(form.devices);
 
       if (devicesPassed.value === true) {
         api

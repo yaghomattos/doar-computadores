@@ -3,14 +3,15 @@
  * @param form -> formulário com as informações de equipamentos
  */
 
-export async function validateDevices(form) {
+export async function validateDevices(devices) {
   var value = true;
 
-  form.devices.forEach((device) => {
-    if (device.type == undefined || device.condition == undefined)
+  for (var i = 0; i < devices.length; i++) {
+    if (devices[i].type == undefined || devices[i].condition == undefined) {
       value = false;
-    else value = true;
-  });
+      break;
+    }
+  }
 
   return { value };
 }
