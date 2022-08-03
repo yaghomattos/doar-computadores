@@ -44,7 +44,7 @@ export function FormPersonal({
         <InputMask name="neighborhood" placeholder="ponto de referência" />
       </div>
 
-      <div className="flex pt-1 pb-5 items-center jusitfy-center">
+      <div className="flex mt-6 pt-4 pb-2 items-center jusitfy-center border-t-2 border-zinc-200">
         <h3 className="mr-2 text-xl font-bold text-zinc-400">
           Quantos equipamentos serão doados ?
         </h3>

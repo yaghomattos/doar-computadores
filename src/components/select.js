@@ -27,7 +27,6 @@ export default function Select({ name, ...rest }) {
       padding: 10,
     }),
     control: () => ({
-      width: 390,
       backgroundColor: '#fff',
       border: '1px solid #d4d4d8',
       borderRadius: 8,
@@ -43,6 +42,7 @@ export default function Select({ name, ...rest }) {
 
   return (
     <ReactSelect
+      className="w-32 sm:w-36 md:w-64 lg:w-96"
       styles={customStyles}
       theme={(theme) => ({
         ...theme,
