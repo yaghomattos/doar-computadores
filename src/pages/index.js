@@ -99,11 +99,15 @@ export default function Home() {
       });
 
       /* Validação manual do número de equipamentos */
-      form.devices.forEach((device) => {
-        if (device.type == undefined || device.condition == undefined) {
+      for (var i = 0; i < form.devices.length; i++) {
+        if (
+          form.devices[i].type == undefined ||
+          form.devices[i].condition == undefined
+        ) {
           setDevicesError(true);
-        } else setDevicesError(false);
-      });
+          break;
+        } else if (devicesError == true) setDevicesError(false);
+      }
 
       await schema.validate(form, {
         abortEarly: false,
