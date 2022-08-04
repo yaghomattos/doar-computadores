@@ -1,0 +1,76 @@
+{
+  "orgs": [
+    {
+      "name": "União Entregas Expressas Ltda",
+      "city": "Varginha",
+      "neighboor": "Jardim Sion",
+      "presentation": "Lorem ipsum justo eget erat vehicula orci per interdum praesent vestibulum curae, torquent sollicitudin euismod non sit arcu integer dolor vel aenean, tempus blandit netus curae donec lectus nam placerat cras tempus. ornare sagittis massa iaculis viverra duis neque nec aenean fringilla, conubia ornare taciti sapien sociosqu auctor elementum inceptos id, lacinia dictumst litora consequat habitasse aliquam pellentesque arcu. urna accumsan morbi venenatis ut lectus nullam magna leo volutpat posuere primis, nam cubilia condimentum potenti a mollis tristique orci dapibus auctor. mauris eu aenean luctus imperdiet neque pharetra, adipiscing ultricies tincidunt primis at nam et, eros massa velit faucibus tempor. ",
+      "links": {
+        "site": "https://www.uniaoentregas.com.br/",
+        "instagram": "https://www.instagram/uniaoentregas",
+        "facebook": "https://www.facebook/uniao-entregas-expressas",
+        "whatsapp": "(38) 98134-5939"
+      }
+    },
+    {
+      "name": "Nova Era Eletrônica Ltda",
+      "city": "Alvarenga",
+      "neighboor": "Centro",
+      "presentation": "Lorem ipsum justo eget erat vehicula orci per interdum praesent vestibulum curae, torquent sollicitudin euismod non sit arcu integer dolor vel aenean, tempus blandit netus curae donec lectus nam placerat cras tempus. ornare sagittis massa iaculis viverra duis neque nec aenean fringilla, conubia ornare taciti sapien sociosqu auctor elementum inceptos id, lacinia dictumst litora consequat habitasse aliquam pellentesque arcu.",
+      "links": {
+        "site": "https://www.novaera-eletronica.com.br/",
+        "instagram": "https://www.instagram/novaera-eletronica",
+        "facebook": "https://www.facebook/novaeraeletronica",
+        "whatsapp": "(38) 99740-1710"
+      }
+    },
+    {
+      "name": "Lux Telecom Ltda",
+      "city": "São João Del Rei",
+      "neighboor": "COHAB",
+      "presentation": "Lorem ipsum justo eget erat vehicula orci per interdum praesent vestibulum curae, torquent sollicitudin euismod non sit arcu integer dolor vel aenean, tempus blandit netus curae donec lectus nam placerat cras tempus. ornare sagittis massa iaculis viverra duis neque nec aenean fringilla, conubia ornare taciti sapien sociosqu auctor elementum inceptos id, lacinia dictumst litora consequat habitasse aliquam pellentesque arcu. urna accumsan morbi venenatis ut lectus nullam magna leo volutpat posuere primis, nam cubilia condimentum potenti a mollis tristique orci dapibus auctor.",
+      "links": {
+        "site": "https://www.luxtelecom.com.br/",
+        "instagram": "https://www.instagram/luxtelecom1",
+        "facebook": "https://www.facebook/luxtelecom001",
+        "whatsapp": "(35) 99180-1411"
+      }
+    },
+    {
+      "name": "Genuíno Telecomunicações Ltda",
+      "city": "Ipatinga",
+      "neighboor": "Horto",
+      "presentation": "Lorem ipsum justo eget erat vehicula orci per interdum praesent vestibulum curae, torquent sollicitudin euismod non sit arcu integer dolor vel aenean, tempus blandit netus curae donec lectus nam placerat cras tempus. ornare sagittis massa iaculis viverra duis neque nec aenean fringilla. Pharetra, adipiscing ultricies tincidunt primis at nam et, eros massa velit faucibus tempor.",
+      "links": {
+        "site": "https://www.telecomunicacoes-genuino.com.br/",
+        "instagram": "https://www.instagram/genuino.telecomunicacoes",
+        "facebook": "https://www.facebook/genuino.telecomunicacoes",
+        "whatsapp": "(31) 98158-3225"
+      }
+    },
+    {
+      "name": "Projetos Francisco",
+      "city": "Governador Valadares",
+      "neighboor": "Vitória",
+      "presentation": "Lorem ipsum justo eget erat vehicula orci per interdum praesent vestibulum curae, torquent sollicitudin euismod non sit arcu integer dolor vel aenean, tempus blandit netus curae donec lectus nam placerat cras tempus.",
+      "links": {
+        "site": "https://www.projetosfrancisco.com.br/",
+        "instagram": "https://www.instagram/ProjetosDoFrancisco",
+        "facebook": "https://www.facebook/projetos_francisco",
+        "whatsapp": "(37) 99711-8942"
+      }
+    },
+    {
+      "name": "Nice Informática ME",
+      "city": "Uberaba",
+      "neighboor": "Jardim Califórnia",
+      "presentation": "Lorem ipsum justo eget erat vehicula orci per interdum praesent vestibulum curae, torquent sollicitudin euismod non sit arcu integer dolor vel aenean, tempus blandit netus curae donec lectus nam placerat cras tempus. ornare sagittis massa iaculis viverra duis neque nec aenean fringilla, conubia ornare taciti sapien sociosqu auctor elementum inceptos id, lacinia dictumst litora consequat habitasse aliquam pellentesque arcu. Mauris eu aenean luctus imperdiet neque pharetra, adipiscing ultricies tincidunt primis at nam et, eros massa velit faucibus tempor.",
+      "links": {
+        "site": "https://www.nice-informatica.com.br/",
+        "instagram": "https://www.instagram/nice.informaticaME",
+        "facebook": "https://www.facebook/niceinformatica",
+        "whatsapp": "(31) 99940-5228"
+      }
+    }
+  ]
+}
