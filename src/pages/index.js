@@ -66,6 +66,9 @@ export default function Home() {
    */
   async function handleFormSubmit(form) {
     form.deviceCount = parseInt(form.deviceCount);
+    form.phone = form.phone.replace(/[\s()-]/g, '');
+    form.zip = form.zip.replace('-', '');
+    console.log(form);
 
     const data = JSON.stringify(form);
 
@@ -81,7 +84,7 @@ export default function Home() {
         email: Yup.string(),
         phone: Yup.string()
           .transform((value) => value.replaceAll('_', ''))
-          .min(12, 'Telefone inválido')
+          .min(11, 'Telefone inválido')
           .required('*O telefone é obrigatório'),
         zip: Yup.string().required('*O cep é obrigatório'),
         city: Yup.string().required('*A cidade é obrigatória'),
@@ -117,7 +120,9 @@ export default function Home() {
 
       if (devicesPassed.value === true) {
         api
-          .post('/donation', data)
+          .post('/donation', data, {
+            headers: { 'Access-Control-Allow-Origin': '*' },
+          })
           .then((response) => {
             alert('Envio concluído com exito! Satus ' + response.status);
           })

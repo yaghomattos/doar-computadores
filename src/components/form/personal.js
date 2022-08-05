@@ -13,7 +13,7 @@ export function FormPersonal({
       <div className="flex flex-wrap w-full pb-2 gap-1">
         <InputMask name="name" placeholder="nome" />
         <InputMask type="email" name="email" placeholder="email" />
-        <InputMask name="phone" placeholder="telefone" mask="99 999999999" />
+        <InputMask name="phone" placeholder="telefone" mask="(99) 99999-9999" />
       </div>
       <h3 className="text-1xl font-bold text-zinc-500">Endereço</h3>
 
@@ -21,10 +21,11 @@ export function FormPersonal({
         <InputMask
           name="zip"
           placeholder="cep"
-          mask="99999999"
+          mask="99999-999"
           onChange={({ target }) => {
-            const length = target.value.replaceAll('_', '').length;
-            if (length === 8) setAddress(target.value);
+            const value = target.value.replaceAll('-', '');
+            const length = value.replaceAll('_', '').length;
+            if (length === 8) setAddress(value);
           }}
         />
         {isLoading && <span>pesquisando cep...</span>}
