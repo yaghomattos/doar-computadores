@@ -1,5 +1,6 @@
 import { Form } from '@unform/web';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useCallback, useRef, useState } from 'react';
 import * as Yup from 'yup';
 import { FormDevices } from '../components/form/devices';
@@ -158,6 +159,14 @@ export default function Home() {
         <title>Doar Computadores</title>
       </Head>
       <div className="shadow-xl mx-auto max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-max px-8 my-5 bg-white rounded-md">
+        <header className="mt-5">
+          <Link href={'/instituicoes'}>
+            <div className="text-zinc-800 cursor-pointer">
+              <span className="font-bold text-lg">Instituições</span>
+            </div>
+          </Link>
+        </header>
+
         <Form
           className="flex flex-col items-center "
           initialData={{ deviceCount: 1 }}

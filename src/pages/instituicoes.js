@@ -11,13 +11,19 @@ export default function Institutions() {
       <Head>
         <title>Instituições</title>
       </Head>
+
       <div className="shadow-xl mx-auto max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-2xl px-8 my-5 bg-white rounded-md">
         <header className="my-5">
-          <h1 className="text-zinc-600">
-            Instituições que podem receber doações:
-          </h1>
+          <Link href={'/'}>
+            <div className="text-zinc-800 cursor-pointer">
+              <span className="font-bold text-lg">Fazer Doação</span>
+            </div>
+          </Link>
         </header>
 
+        <h1 className="mb-5 text-zinc-600">
+          Instituições que podem receber doações:
+        </h1>
         {orgs.map((org, index) => {
           return (
             <div key={index} className="border border-1 mb-2">
