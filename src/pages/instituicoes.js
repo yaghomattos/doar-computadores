@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
+import { BiArrowBack } from 'react-icons/bi';
 import data from '../service/institutions.json';
 
 export default function Institutions() {
@@ -12,51 +13,61 @@ export default function Institutions() {
         <title>Instituições</title>
       </Head>
 
-      <div className="shadow-xl mx-auto max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-2xl px-8 my-5 bg-white rounded-md">
-        <header className="my-5">
+      <div className="w-8/12 mx-auto my-5 px-5 bg-white rounded-md">
+        <header className="mb-5 mt-5 pb-6">
           <Link href={'/'}>
-            <div className="text-zinc-800 cursor-pointer">
-              <span className="font-bold text-lg">Fazer Doação</span>
+            <div className="w-fit flex mb-8 mt-4 py-2 px-4 gap-2 items-center bg-green-500 rounded-md cursor-pointer">
+              <BiArrowBack size="24" />
+              <span className="font-bold text-lg">Fazer doação</span>
             </div>
           </Link>
+
+          <h1 className="text-center text-5xl font-extrabold text-zinc-700">
+            Instituições que podem receber doações
+          </h1>
         </header>
 
-        <h1 className="mb-5 text-zinc-600">
-          Instituições que podem receber doações:
-        </h1>
         {orgs.map((org, index) => {
           return (
-            <div key={index} className="border border-1 mb-2">
+            <div key={index} className="mb-5 pt-8 border-t-2">
               <div className="text-zinc-400">
-                <h1>{orgs[index].name}</h1>
-                <div className="w-full flex flex-wrap">
-                  <h2>Cidade:</h2>
-                  <p>{orgs[index].city}</p>
+                <h2 className="text-center text-xl font-bold text-zinc-600">
+                  {orgs[index].name}
+                </h2>
+                <div className="w-full flex flex-wrap gap-1 items-center">
+                  <h3 className="text-lg font-bold text-zinc-500">Cidade:</h3>
+                  <p className="text-lg font-normal text-zinc-400">
+                    {orgs[index].city}
+                  </p>
                 </div>
-                <div className="w-full flex flex-wrap">
-                  <h2>Bairro:</h2>
-                  <p>{orgs[index].neighboor}</p>
+                <div className="w-full flex flex-wrap gap-1 items-center">
+                  <h3 className="text-lg font-bold text-zinc-500">Bairro:</h3>
+                  <p className="text-lg font-normal text-zinc-400">
+                    {orgs[index].neighboor}
+                  </p>
                 </div>
                 <div className="flex flex-wrap text-justify">
-                  <h2>Descrição:</h2>
-                  <p>{orgs[index].presentation}</p>
+                  <h3 className="text-lg font-bold text-zinc-500">
+                    Descrição:
+                  </h3>
+                  <p className="text-lg font-normal text-zinc-400">
+                    {orgs[index].presentation}
+                  </p>
                 </div>
               </div>
 
-              <footer className="mt-4 text-zinc-400">
-                <Link href={''}>
-                  <a>{orgs[index].links.site}</a>
+              <footer className="w-full flex flex-row gap-10 mt-4 text-zinc-400">
+                <Link href={`${orgs[index].links.site}`}>
+                  <a className="text-lg font-bold text-zinc-400">Site</a>
                 </Link>
-                <Link href={''}>
-                  <a className="flex flex-wrap">
-                    {orgs[index].links.instagram}
-                  </a>
+                <Link href={`${orgs[index].links.instagram}`}>
+                  <a className="text-lg font-bold text-zinc-400">Instagram</a>
                 </Link>
-                <Link href={''}>
-                  <a>{orgs[index].links.facebook}</a>
+                <Link href={`${orgs[index].links.facebook}`}>
+                  <a className="text-lg font-bold text-zinc-400">Facebook</a>
                 </Link>
-                <Link href={''}>
-                  <a>{orgs[index].links.whatsapp}</a>
+                <Link href={`${orgs[index].links.whatsapp}`}>
+                  <a className="text-lg font-bold text-zinc-400">Whatsapp</a>
                 </Link>
               </footer>
             </div>
