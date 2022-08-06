@@ -69,7 +69,6 @@ export default function Home() {
     form.deviceCount = parseInt(form.deviceCount);
     form.phone = form.phone.replace(/[\s()-]/g, '');
     form.zip = form.zip.replace('-', '');
-    console.log(form);
 
     const data = JSON.stringify(form);
 
