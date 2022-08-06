@@ -9,6 +9,8 @@ import api from '../service/api';
 import { fetchZip } from '../utils/fetchZip';
 import { validateDevices } from '../utils/validateDevices';
 
+import { FaRegHandshake } from 'react-icons/fa';
+
 export default function Home() {
   const formRef = useRef();
 
@@ -157,14 +159,31 @@ export default function Home() {
       <Head>
         <title>Doar Computadores</title>
       </Head>
-      <div className="shadow-xl mx-auto max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-max px-8 my-5 bg-white rounded-md">
-        <header className="mt-5">
+
+      <div className="mx-auto max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-max px-8 my-5 bg-white shadow-xl rounded-md">
+        <header className="mt-5 pb-6 border-b-2">
+          <h1 className="text-center mb-8 text-5xl font-extrabold text-zinc-700">
+            Doação de Computadores
+          </h1>
+
+          <h3 className="w-full text-xl font-normal text-zinc-700">
+            Faça a doação de um computador usado e impacte positivamente na vida
+            de pessoas!
+          </h3>
+
           <Link href={'/instituicoes'}>
-            <div className="text-zinc-800 cursor-pointer">
-              <span className="font-bold text-lg">Instituições</span>
+            <div className="w-fit mx-auto flex mt-4 py-2 px-4 gap-2 items-center bg-green-500 rounded-md cursor-pointer">
+              <span className="font-bold text-lg">
+                Ver instituições parceiras
+              </span>
+              <FaRegHandshake size="24" />
             </div>
           </Link>
         </header>
+
+        <h2 className="mt-8 mb-8 text-4xl text-center font-extrabold text-zinc-700">
+          Fazer Doação
+        </h2>
 
         <Form
           className="flex flex-col items-center "
@@ -172,10 +191,6 @@ export default function Home() {
           ref={formRef}
           onSubmit={handleFormSubmit}
         >
-          <h1 className="mt-12 mb-8 text-5xl font-extrabold text-zinc-700">
-            Doação de Computadores
-          </h1>
-
           <section>
             <FormPersonal
               setAddress={setAddress}

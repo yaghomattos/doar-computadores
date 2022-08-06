@@ -10,12 +10,13 @@ export function FormPersonal({
   return (
     <div className="flex flex-col">
       <h2 className="text-2xl font-bold text-zinc-500">Dados Pessoais</h2>
-      <div className="flex flex-wrap w-full pb-2 gap-1">
+      <div className="flex flex-wrap w-full pb-1 gap-1">
         <InputMask name="name" placeholder="nome" />
         <InputMask type="email" name="email" placeholder="email" />
         <InputMask name="phone" placeholder="telefone" mask="(99) 99999-9999" />
       </div>
-      <h3 className="text-1xl font-bold text-zinc-500">Endereço</h3>
+
+      <h3 className="text-1xl font-bold text-zinc-400">Endereço</h3>
 
       <div className="flex flex-wrap w-full gap-1">
         <InputMask
@@ -45,8 +46,8 @@ export function FormPersonal({
         <InputMask name="neighborhood" placeholder="ponto de referência" />
       </div>
 
-      <div className="flex mt-6 pt-4 pb-2 items-center jusitfy-center border-t-2 border-zinc-200">
-        <h3 className="mr-2 text-xl font-bold text-zinc-400">
+      <div className="flex mt-6 pt-10 pb-2 items-center jusitfy-center border-t-2 border-zinc-200 gap-2">
+        <h3 className="text-xl font-bold text-zinc-400">
           Quantos equipamentos serão doados ?
         </h3>
         <InputMask
