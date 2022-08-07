@@ -2,7 +2,6 @@ import { Form } from '@unform/web';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useCallback, useRef, useState } from 'react';
-import * as Yup from 'yup';
 import { FormDevices } from '../components/form/devices';
 import { FormPersonal } from '../components/form/personal';
 import api from '../service/api';
@@ -122,9 +121,7 @@ export default function Home() {
 
       if (devicesPassed.value === true) {
         api
-          .post('/donation', data, {
-            headers: { 'Access-Control-Allow-Origin': '*' },
-          })
+          .post('/donation', data)
           .then((response) => {
             alert('Envio concluído com exito! Satus ' + response.status);
           })
@@ -161,8 +158,8 @@ export default function Home() {
       </Head>
 
       <div className="mx-auto max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-max px-8 my-5 bg-white shadow-xl rounded-md">
-        <header className="mt-5 pb-6 border-b-2">
-          <h1 className="text-center mb-8 text-5xl font-extrabold text-zinc-700">
+        <header className="mx-auto mt-5 pb-6 border-b-2">
+          <h1 className="mb-8 text-4xl sm:text-5xl text-center font-extrabold text-zinc-700">
             Doação de Computadores
           </h1>
 
@@ -173,15 +170,15 @@ export default function Home() {
 
           <Link href={'/instituicoes'}>
             <div className="w-fit mx-auto flex mt-4 py-2 px-4 gap-2 items-center bg-green-500 rounded-md cursor-pointer">
-              <span className="font-bold text-lg">
+              <a className="font-bold text-lg text-white">
                 Ver instituições parceiras
-              </span>
-              <FaRegHandshake size="24" />
+              </a>
+              <FaRegHandshake size="24" color="white" />
             </div>
           </Link>
         </header>
 
-        <h2 className="mt-8 mb-8 text-4xl text-center font-extrabold text-zinc-700">
+        <h2 className="mt-8 mb-8 text-3xl sm:text-4xl text-center font-extrabold text-zinc-700">
           Fazer Doação
         </h2>
 
