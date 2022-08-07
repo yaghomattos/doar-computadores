@@ -2,13 +2,13 @@ import { Form } from '@unform/web';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useCallback, useRef, useState } from 'react';
+import { FaRegHandshake } from 'react-icons/fa';
+import * as Yup from 'yup';
 import { FormDevices } from '../components/form/devices';
 import { FormPersonal } from '../components/form/personal';
 import api from '../service/api';
 import { fetchZip } from '../utils/fetchZip';
 import { validateDevices } from '../utils/validateDevices';
-
-import { FaRegHandshake } from 'react-icons/fa';
 
 export default function Home() {
   const formRef = useRef();
