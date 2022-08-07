@@ -39,7 +39,7 @@ export default function Home() {
 
   /**
    * Função para criar equipamentos vazios, atualizando o estado para exibir a
-   * quantidade de dispotivos digitados
+   * quantidade de equipamentos digitada
    * @param deviceCount
    */
   async function handleCreateDevice(deviceCount) {
@@ -52,7 +52,7 @@ export default function Home() {
 
   /**
    * Função para remover equipamentos, atualizando o estado para exibir apenas a
-   * quantidade de equipamentos digitados
+   * quantidade de equipamentos digitada
    * @param deviceCount
    */
   async function handleDeleteDevice(deviceCount) {
@@ -117,24 +117,40 @@ export default function Home() {
         abortEarly: false,
       });
 
+      /**
+       * Verificação do resultado da validação de dispositivos
+       * Se for true, faz o encaminhamento pela api
+       */
       const devicesPassed = await validateDevices(form.devices);
-
       if (devicesPassed.value === true) {
         api
           .post('/donation', data)
           .then((response) => {
-            alert('Envio concluído com exito! Satus ' + response.status);
+            alert('Formulário enviado com exito! \nSatus ' + response.status);
           })
           .catch((error) => {
+            /* Tratamento do requiredFields retornado pelo backend */
+            const requiredFields = error.response.data.requiredFields;
+            var errorsField = {};
+
+            requiredFields.forEach((field) => {
+              errorsField[field] = '*Campo obrigatório';
+            });
+
+            formRef.current.setErrors(errorsField);
+
+            /* Mensagem de erro para respostas do servidor */
             alert(
               'Falha em obter resposta do servidor. Tente novamente mais tarde. \nStatus ' +
                 error.response.status
             );
           });
-      } else
+      } else {
+        /* Mensagem de erro de dispositivos faltantes */
         alert(
           'Dados faltantes ou errados. Corrigir antes de enviar novamente. \nStatus 400'
         );
+      }
     } catch (err) {
       var validationErrors = {};
 
@@ -145,6 +161,7 @@ export default function Home() {
       }
       formRef.current.setErrors(validationErrors);
 
+      /* Mensagem de erro de dados pessoais faltantes */
       alert(
         'Dados faltantes ou errados. Corrigir antes de enviar novamente. \nStatus 400'
       );
