@@ -134,7 +134,7 @@ export default function Home() {
             var errorsField = {};
 
             requiredFields.forEach((field) => {
-              errorsField[field] = '*Campo obrigatório';
+              errorsField[field] = '*Campo obrigatório pelo Backend';
             });
 
             formRef.current.setErrors(errorsField);
@@ -180,7 +180,7 @@ export default function Home() {
             Doação de Computadores
           </h1>
 
-          <h3 className="w-full text-xl font-normal text-zinc-700">
+          <h3 className="w-full text-xl font-bold text-zinc-500">
             Faça a doação de um computador usado e impacte positivamente na vida
             de pessoas!
           </h3>
@@ -214,8 +214,8 @@ export default function Home() {
             />
           </section>
 
-          <section className="w-full">
-            <h2 className=" text-2xl font-bold text-zinc-500">Equipamentos</h2>
+          <section className="mx-auto">
+            <h2 className="text-2xl font-bold text-zinc-400">Equipamentos</h2>
             <FormDevices devices={devices} devicesError={devicesError} />
           </section>
 
