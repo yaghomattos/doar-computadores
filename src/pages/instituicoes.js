@@ -16,7 +16,7 @@ export default function Institutions() {
       <div className="w-72 sm:w-7/12 mx-auto my-5 px-5 bg-white rounded-md">
         <header className="mb-5 mt-5 pb-6">
           <Link href={'/'}>
-            <div className="w-fit flex mb-8 mt-4 py-2 px-4 gap-2 items-center bg-green-500 rounded-md cursor-pointer">
+            <div className="w-fit flex mb-8 mt-4 py-2 px-4 gap-2 items-center bg-green-500 rounded-md cursor-pointer hover:bg-green-600">
               <BiArrowBack size="24" color="white" />
               <a className="font-bold text-lg text-white">Fazer doação</a>
             </div>

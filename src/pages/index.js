@@ -186,7 +186,7 @@ export default function Home() {
           </h3>
 
           <Link href={'/instituicoes'}>
-            <div className="w-fit mx-auto flex mt-4 py-2 px-4 gap-2 items-center bg-green-500 rounded-md cursor-pointer">
+            <div className="w-fit mx-auto flex mt-4 py-2 px-4 gap-2 items-center bg-green-500 rounded-md cursor-pointer hover:bg-green-600">
               <a className="font-bold text-lg text-white">
                 Ver instituições parceiras
               </a>
@@ -220,7 +220,7 @@ export default function Home() {
           </section>
 
           <button
-            className="inline-block mt-5 mb-12 py-3 px-7 w-1/3 text-green-50 font-medium text-center bg-green-500 hover:bg-green-600 rounded-md"
+            className="inline-block mt-5 mb-12 py-3 px-7 w-1/3 font-bold text-center text-white bg-green-500 hover:bg-green-600 rounded-md"
             type="submit"
           >
             Enviar
