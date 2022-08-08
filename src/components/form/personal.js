@@ -41,9 +41,9 @@ export function FormPersonal({
         />
       </div>
       <div className="flex flex-wrap w-full gap-1">
+        <InputMask name="neighborhood" placeholder="bairro" />
         <InputMask name="number" placeholder="número" />
         <InputMask name="complement" placeholder="complemento" />
-        <InputMask name="neighborhood" placeholder="ponto de referência" />
       </div>
 
       <div className="flex mt-6 pt-10 pb-2 items-center jusitfy-center border-t-2 border-zinc-200 gap-2">
